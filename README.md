@@ -12,8 +12,8 @@ const fakeContext = {name: 'Kate', height: 183};
 // Create a new React class to stub your context
 const FooStubbed = stub(Foo, fakeContext);
 
-var element = React.TestUtils.renderIntoDOM(<FooStubbed someProp="whatever" />);
+const element = React.TestUtils.renderIntoDOM(<FooStubbed someProp="whatever" />);
 
 // This is the ref to your inner element
-var ref = element.refs.baseElement;
+const ref = element.refs.baseElement;
 ```
