@@ -5,17 +5,17 @@ module.exports = function createStub(ChildComponent, context) {
   var contextTypes = {};
 
   Object.keys(context).forEach(function (key) {
-    contextTypes[key] = React.PropTypes.any);
+    contextTypes[key] = React.PropTypes.any;
   });
 
   return React.createClass({
-    displayName: 'ReactTestContextWrapper'
+    displayName: 'ReactTestContextWrapper',
     childContextTypes: contextTypes,
     getChildContext: function () {
       return context;
     },
     render: function () {
-      return React.createElement(ChildComponent, assign({}, props, {ref: 'baseElement'}));
+      return React.createElement(ChildComponent, assign({}, this.props, {ref: 'baseElement'}));
     }
   });
 }
