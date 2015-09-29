@@ -1,9 +1,12 @@
 var React = require('react');
+var assign = Object.assign || require('react/lib/Object.assign');
 
 module.exports = function createStub(ChildComponent, context) {
   var contextTypes = {};
 
-  Object.keys(context).forEach(key => contextTypes[key] = React.PropTypes.any);
+  Object.keys(context).forEach(function (key) {
+    contextTypes[key] = React.PropTypes.any);
+  });
 
   return React.createClass({
     displayName: 'ReactTestContextWrapper'
@@ -12,7 +15,7 @@ module.exports = function createStub(ChildComponent, context) {
       return context;
     },
     render: function () {
-      return <ChildComponent ref="baseElement" {...this.props} />
+      return React.createElement(ChildComponent, assign({}, props, {ref: 'baseElement'}));
     }
   });
 }
