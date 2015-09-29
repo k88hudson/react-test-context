@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Utility for testing context",
   "main": "index.js",
-  "scripts": {},
-  "author": "",
+  "scripts": {
+    "postversion": "npm publish"
+  },
+  "author": "k88hudson",
   "license": "MPL-2.0"
 }
