@@ -35,5 +35,9 @@ module.exports = function (React, TestUtils, getDOMNode) {
       assert.ok(testEl.refs.parentElement);
     });
 
+    it('should preserve props', function () {
+      assert.equal(testEl.refs.baseElement.props.bar, 'bar');
+    });
+
   });
 };

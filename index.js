@@ -8,23 +8,22 @@ module.exports = function createStub(ChildComponent, context) {
     contextTypes[key] = React.PropTypes.any;
   });
 
-  var ContextWrapper = React.createClass({
-    displayName: 'ContextParent',
+  var contextMixin = {
     childContextTypes: contextTypes,
     getChildContext: function () {
       return context;
-    },
+    }
+  };
+
+  var ContextWrapper = React.createClass(assign({
+    displayName: 'TestContextParent',
     render: function () {
       return this.props.children;
     }
-  });
+  }, contextMixin));
 
-  return React.createClass({
-    displayName: 'ReactTestContextWrapper',
-    childContextTypes: contextTypes,
-    getChildContext: function () {
-      return context;
-    },
+  return React.createClass(assign({
+    displayName: 'TestContextWrapper',
     render: function () {
       return React.createElement(
         ContextWrapper,
@@ -32,5 +31,5 @@ module.exports = function createStub(ChildComponent, context) {
         React.createElement(ChildComponent, assign({}, this.props, {ref: 'baseElement'}))
       );
     }
-  });
+  }, contextMixin));
 }
