@@ -1,5 +1,7 @@
 # React Test Context
 
+[![Build Status](https://travis-ci.org/k88hudson/react-test-context.svg)](https://travis-ci.org/k88hudson/react-test-context)
+
 A tiny utility to help you test components that use React's `context` feature.
 
 ## Example usage
