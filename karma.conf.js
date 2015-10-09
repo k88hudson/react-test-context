@@ -1,7 +1,7 @@
 module.exports = function (config) {
   config.set({
     singleRun: true,
-    browsers: ['Chrome'],
+    browsers: ['Firefox'],
     frameworks: ['mocha'],
     reporters: ['mocha'],
     files: [
